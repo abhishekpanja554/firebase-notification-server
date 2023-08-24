@@ -2,6 +2,8 @@ import {initializeApp, applicationDefault } from 'firebase-admin/app';
 import { getMessaging } from "firebase-admin/messaging";
 import express from "express";
 import cors from "cors";
+const serviceAccount = require("path/to/serviceAccountKey.json");
+
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
@@ -27,8 +29,8 @@ app.use(function(req, res, next) {
 
 
 initializeApp({
-  credential: applicationDefault(),
-  projectId: 'potion-for-creators',
+  credential: cert(serviceAccount),
+  projectId: 'wedio-fb1c2',
 });
 
 app.post("/send_notification", function (req, res) {
