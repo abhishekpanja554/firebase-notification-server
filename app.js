@@ -3,7 +3,7 @@ import admin from 'firebase-admin';
 import { getMessaging } from "firebase-admin/messaging";
 import express from "express";
 import cors from "cors";
-import serviceAccount from './wedio-fb1c2-firebase-adminsdk-bysd3-989b26374b.json';
+import serviceAccount from './wedio-fb1c2-firebase-adminsdk-bysd3-989b26374b.json' assert { type: "json" };
 
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS;
