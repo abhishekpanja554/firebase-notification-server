@@ -1,8 +1,9 @@
-import {initializeApp, applicationDefault } from 'firebase-admin/app';
+import {initializeApp} from 'firebase-admin/app';
+import admin from 'firebase-admin';
 import { getMessaging } from "firebase-admin/messaging";
 import express from "express";
 import cors from "cors";
-const serviceAccount = require("path/to/serviceAccountKey.json");
+import serviceAccount from './wedio-fb1c2-firebase-adminsdk-bysd3-989b26374b.json' assert { type: "json" };
 
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS;
@@ -29,8 +30,7 @@ app.use(function(req, res, next) {
 
 
 initializeApp({
-  credential: cert(serviceAccount),
-  projectId: 'wedio-fb1c2',
+  credential: admin.credential.cert(serviceAccount)
 });
 
 app.post("/send_notification", function (req, res) {
